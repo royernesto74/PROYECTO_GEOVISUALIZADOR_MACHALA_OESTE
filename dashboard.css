@@ -1,96 +1,320 @@
-/*======================================================
-    GEOPORTAL OESTE MACHALA
-    Dashboard v2.0
-======================================================*/
-
 /*=========================
-    VARIABLES
+        VARIABLES
 =========================*/
 
 :root{
 
-    --primary:#1565C0;
-    --primary-dark:#0D47A1;
+--primary:#1565C0;
+--secondary:#1E88E5;
+--success:#43A047;
+--danger:#E53935;
+--warning:#FB8C00;
 
-    --secondary:#42A5F5;
+--bg:#eef3f8;
+--card:#ffffff;
 
-    --success:#2E7D32;
-
-    --warning:#F9A825;
-
-    --danger:#D32F2F;
-
-    --white:#FFFFFF;
-
-    --background:#F4F7FB;
-
-    --card:#FFFFFF;
-
-    --border:#DCE5EE;
-
-    --text:#263238;
-
-    --text-light:#607D8B;
-
-    --radius:14px;
-
-    --shadow:
-        0 8px 24px rgba(0,0,0,.10);
+--text:#263238;
+--text2:#607D8B;
 
 }
+
 
 /*=========================
-    GENERAL
+      BOTÓN
 =========================*/
 
-*{
+.toggleDashboard{
 
-    margin:0;
+position:absolute;
 
-    padding:0;
+top:12px;
+left:60px;
 
-    box-sizing:border-box;
+z-index:9999;
+
+background:var(--primary);
+
+color:white;
+
+border:none;
+
+padding:12px 18px;
+
+border-radius:10px;
+
+cursor:pointer;
+
+font-weight:bold;
+
+box-shadow:0 5px 15px rgba(0,0,0,.25);
+
+transition:.3s;
 
 }
 
-html,
-body{
+.toggleDashboard:hover{
 
-    font-family:
-    "Segoe UI",
-    Arial,
-    sans-serif;
-
-    background:#ffffff;
-
-    color:var(--text);
+background:#0D47A1;
 
 }
+
 
 /*=========================
-    MAPA
+     PANEL
 =========================*/
 
-#map{
+#dashboard{
 
-    width:100%;
+position:absolute;
 
-    height:100%;
+left:15px;
+top:65px;
+
+width:360px;
+
+max-height:88vh;
+
+overflow-y:auto;
+
+background:var(--bg);
+
+border-radius:16px;
+
+padding:18px;
+
+box-shadow:0 12px 35px rgba(0,0,0,.28);
+
+z-index:9998;
+
+transition:.35s;
 
 }
+
+#dashboard.oculto{
+
+transform:translateX(-390px);
+
+}
+
 
 /*=========================
-    BOTONES OPENLAYERS
+      HEADER
 =========================*/
 
-.ol-control>*{
+.dashboard-header{
 
-    border-radius:8px;
+text-align:center;
+
+margin-bottom:18px;
 
 }
 
-.ol-control{
+.dashboard-header h2{
 
-    border-radius:10px;
+margin:0;
+
+color:var(--primary);
+
+font-size:24px;
+
+}
+
+.dashboard-header p{
+
+margin-top:5px;
+
+color:var(--text2);
+
+font-size:14px;
+
+}
+
+
+/*=========================
+      TARJETAS
+=========================*/
+
+.cards{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:12px;
+
+margin-bottom:18px;
+
+}
+
+.card{
+
+background:var(--card);
+
+padding:14px;
+
+border-radius:14px;
+
+text-align:center;
+
+box-shadow:0 3px 10px rgba(0,0,0,.08);
+
+}
+
+.card h3{
+
+margin:0;
+
+font-size:14px;
+
+color:var(--text2);
+
+}
+
+.number{
+
+margin-top:8px;
+
+font-size:22px;
+
+font-weight:bold;
+
+color:var(--primary);
+
+}
+
+
+/*=========================
+      SECCIONES
+=========================*/
+
+.section{
+
+background:white;
+
+padding:15px;
+
+border-radius:14px;
+
+margin-bottom:18px;
+
+box-shadow:0 3px 10px rgba(0,0,0,.08);
+
+}
+
+.section h3{
+
+margin-top:0;
+
+color:var(--primary);
+
+}
+
+
+/*=========================
+      GRÁFICO
+=========================*/
+
+.chart-container{
+
+height:260px;
+
+}
+
+
+/*=========================
+   ÁREAS VERDES
+=========================*/
+
+.green-box{
+
+text-align:center;
+
+}
+
+.green-number{
+
+font-size:44px;
+
+font-weight:bold;
+
+color:var(--success);
+
+}
+
+.green-label{
+
+color:var(--text2);
+
+}
+
+
+/*=========================
+      RIESGO
+=========================*/
+
+.risk-grid{
+
+display:grid;
+
+grid-template-columns:1fr 1fr 1fr;
+
+gap:10px;
+
+margin-top:10px;
+
+}
+
+.risk{
+
+background:#f8f8f8;
+
+border-radius:12px;
+
+padding:12px;
+
+text-align:center;
+
+}
+
+.risk h4{
+
+margin:0;
+
+font-size:13px;
+
+color:#555;
+
+}
+
+.risk span{
+
+display:block;
+
+margin-top:10px;
+
+font-size:20px;
+
+font-weight:bold;
+
+color:var(--danger);
+
+}
+
+
+/*=========================
+      SCROLL
+=========================*/
+
+#dashboard::-webkit-scrollbar{
+
+width:8px;
+
+}
+
+#dashboard::-webkit-scrollbar-thumb{
+
+background:#c5d0db;
+
+border-radius:20px;
 
 }
