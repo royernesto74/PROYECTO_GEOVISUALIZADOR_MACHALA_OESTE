@@ -1,0 +1,96 @@
+/*======================================================
+    GEOPORTAL OESTE MACHALA
+    Dashboard v2.0
+======================================================*/
+
+/*=========================
+    VARIABLES
+=========================*/
+
+:root{
+
+    --primary:#1565C0;
+    --primary-dark:#0D47A1;
+
+    --secondary:#42A5F5;
+
+    --success:#2E7D32;
+
+    --warning:#F9A825;
+
+    --danger:#D32F2F;
+
+    --white:#FFFFFF;
+
+    --background:#F4F7FB;
+
+    --card:#FFFFFF;
+
+    --border:#DCE5EE;
+
+    --text:#263238;
+
+    --text-light:#607D8B;
+
+    --radius:14px;
+
+    --shadow:
+        0 8px 24px rgba(0,0,0,.10);
+
+}
+
+/*=========================
+    GENERAL
+=========================*/
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html,
+body{
+
+    font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+    background:#ffffff;
+
+    color:var(--text);
+
+}
+
+/*=========================
+    MAPA
+=========================*/
+
+#map{
+
+    width:100%;
+
+    height:100%;
+
+}
+
+/*=========================
+    BOTONES OPENLAYERS
+=========================*/
+
+.ol-control>*{
+
+    border-radius:8px;
+
+}
+
+.ol-control{
+
+    border-radius:10px;
+
+}
