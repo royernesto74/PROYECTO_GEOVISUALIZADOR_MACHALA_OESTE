@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="css/leaflet.css">
         <link rel="stylesheet" href="css/L.Control.Layers.Tree.css">
         <link rel="stylesheet" href="css/qgis2web.css">
+		<!-- Dashboard -->
+<link rel="stylesheet" href="dashboard.css">
         <link rel="stylesheet" href="css/fontawesome-all.min.css">
         <link rel="stylesheet" href="css/leaflet.photon.css">
         <link rel="stylesheet" href="css/leaflet-measure.css">
@@ -21,8 +23,151 @@
         }
         </style>
         <title></title>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
     <body>
+		<!-- ================= DASHBOARD ================= -->
+
+<button class="toggleDashboard" onclick="toggleDashboard()">
+📊 Indicadores
+</button>
+
+<div id="dashboard">
+
+    <div class="dashboard-header">
+        <h2>📊 Tablero de Indicadores</h2>
+        <p>OESTE MACHALA</p>
+    </div>
+
+    <!-- TARJETAS -->
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Área</h3>
+            <div class="number" id="txtArea"></div>
+        </div>
+
+        <div class="card">
+            <h3>Población</h3>
+            <div class="number" id="txtPoblacion"></div>
+        </div>
+
+        <div class="card">
+            <h3>Manzanas</h3>
+            <div class="number" id="txtManzanas"></div>
+        </div>
+
+        <div class="card">
+            <h3>Densidad</h3>
+            <div class="number" id="txtDensidad"></div>
+        </div>
+
+    </div>
+
+    <!-- USO DEL SUELO -->
+
+    <div class="section">
+
+        <h3>Uso del Suelo</h3>
+
+        <div class="chart-container">
+            <canvas id="usoSueloChart"></canvas>
+        </div>
+
+    </div>
+
+    <!-- ACCESIBILIDAD -->
+
+    <div class="section">
+
+        <h3>🏫 Accesibilidad a Equipamientos</h3>
+
+        <div class="risk-grid">
+
+            <div class="risk">
+                <h4>Radio</h4>
+                <span id="equipRadio"></span>
+            </div>
+
+            <div class="risk">
+                <h4>Cobertura</h4>
+                <span id="equipCobertura"></span>
+            </div>
+
+            <div class="risk">
+                <h4>Manzanas</h4>
+                <span id="equipManzanas"></span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ÁREAS VERDES -->
+
+    <div class="section">
+
+        <h3>🌳 Áreas Verdes</h3>
+
+        <div class="green-box">
+
+            <div class="green-number" id="greenValue"></div>
+
+            <div class="green-label">
+                m²/habitante
+            </div>
+
+            <br>
+
+            Área verde disponible
+
+            <br>
+
+            <b id="greenArea"></b>
+
+            <br><br>
+
+            Superávit frente a la OMS
+
+            <br>
+
+            <b id="greenDeficit"></b>
+
+        </div>
+
+    </div>
+
+    <!-- RIESGO -->
+
+    <div class="section">
+
+        <h3>🌊 Riesgo de Inundación</h3>
+
+        <div class="risk-grid">
+
+            <div class="risk">
+                <h4>Manzanas</h4>
+                <span id="riskM"></span>
+            </div>
+
+            <div class="risk">
+                <h4>Población</h4>
+                <span id="riskH"></span>
+            </div>
+
+            <div class="risk">
+                <h4>Área</h4>
+                <span id="riskA"></span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= FIN DASHBOARD ================= -->
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
@@ -753,6 +898,11 @@
         map.on("layerremove", function(){
             resetLabels([layer_parcelas_1,layer_equipamientos_6]);
         });
-        </script>        
+        </script>    
+		<script src="./resources/qgis2web.js"></script>
+<script src="dashboard.js"></script>
+
+</body>
+</html>
     </body>
 </html>
